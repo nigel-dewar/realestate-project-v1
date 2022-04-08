@@ -1,0 +1,425 @@
+{
+    "ReRoutes": [
+      // Forgot Password
+      {
+        "DownstreamPathTemplate": "/api/auth/ForgotPassword",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/ForgotPassword",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      // Reset Password
+      {
+        "DownstreamPathTemplate": "/api/auth/ResetPassword",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/ResetPassword",
+        "UpstreamHttpMethod": ["POST"]
+      },
+
+      // Confirm Email
+      {
+        "DownstreamPathTemplate": "/api/auth/ConfirmEmail?{q}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/ConfirmEmail?{q}",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      
+      // Login
+      { 
+        "DownstreamPathTemplate": "/api/auth/login",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 80
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/Login",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      // Register
+      {
+        "DownstreamPathTemplate": "/api/auth/register",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/Register",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      // Token Refresh
+      {
+        "DownstreamPathTemplate": "/api/auth/refresh",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/TokenRefresh",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      // Get Me
+      {
+        "DownstreamPathTemplate": "/api/auth/me",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "identity",
+            "Port": 5001
+          }
+        ],
+        "UpstreamPathTemplate": "/Identity/Me",
+        "UpstreamHttpMethod": ["GET"]
+      },
+      
+      // Manage API
+      // Manage - Get UserProfile
+      {
+        "DownstreamPathTemplate": "/api/v1/users",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/UserProfile",
+        "UpstreamHttpMethod": ["GET"]
+      },
+      // Manage - Save User Profile
+      {
+        "DownstreamPathTemplate": "/api/v1/users",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/UserProfile",
+        "UpstreamHttpMethod": ["POST"]
+      },
+      // Manage - Check Users Mobile
+      {
+        "DownstreamPathTemplate": "/api/v1/users/check-mobile-number",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 80
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/UserProfile/Check-Mobile-Number",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Submit Mobile Code
+      {
+        "DownstreamPathTemplate": "/api/v1/users/submit-mobile-code",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 80
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/UserProfile/submit-mobile-code",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Get User Types
+      {
+        "DownstreamPathTemplate": "/api/v1/users/user-types",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/UserProfile/user-types",
+        "UpstreamHttpMethod": ["GET"]
+      },
+      
+      // Manage - Get Lookups
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/lookups",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Lookups",
+        "UpstreamHttpMethod": ["GET"]
+      },
+      
+      // Manage - Get My Listings
+      {
+        "DownstreamPathTemplate": "/api/v1/listings",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Manage - Get Listing By Id
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/{id}",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Manage - Save Listing
+      {
+        "DownstreamPathTemplate": "/api/v1/listings",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Create Listing
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/create-listing",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Create",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Create Property
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/create-property",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Property/Create",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Can List Properties
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/CanListProperties/{listingType}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Property/CanList/{listingType}",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Manage - Count of My Listings
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/count",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Count",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Manage - Can Create Address Check
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/can-create-address-check",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/CanCreateAddressCheck",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Get Images
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/property/{id}/images",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Property/{id}/Images",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Manage - Add Image
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/property/{id}/addImage",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Property/{id}/AddImage",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Set Main Image
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/property/{id}/setMainImage/{imageId}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Property/{id}/SetMainImage/{imageId}",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Manage - Delete Image
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/property/{id}/deleteImage/{imageId}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "manage",
+            "Port": 5002
+          }
+        ],
+        "UpstreamPathTemplate": "/Manage/Listings/Property/{id}/DeleteImage/{imageId}",
+        "UpstreamHttpMethod": ["DELETE"]
+      },
+      
+      
+      // Search - Find Listings
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/Find",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "search",
+            "Port": 5009
+          }
+        ],
+        "UpstreamPathTemplate": "/Search/Listings/Find",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Search - Get Listing By ID
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "search",
+            "Port": 5009
+          }
+        ],
+        "UpstreamPathTemplate": "/Search/Listings/{id}",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Search - Get Listing By Slug
+      {
+        "DownstreamPathTemplate": "/api/v1/listings/GetBySlug/{slug}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "search",
+            "Port": 5009
+          }
+        ],
+        "UpstreamPathTemplate": "/Search/Listings/GetBySlug/{slug}",
+        "UpstreamHttpMethod": ["GET"]
+      },
+  
+      // Search - PostCodes Search
+      {
+        "DownstreamPathTemplate": "/api/v1/postcodes/Search",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "search",
+            "Port": 5009
+          }
+        ],
+        "UpstreamPathTemplate": "/Search/postcodes/Search",
+        "UpstreamHttpMethod": ["POST"]
+      },
+  
+      // Search - Get Lookups
+      {
+        "DownstreamPathTemplate": "/api/v1/Lookups",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          {
+            "Host": "search",
+            "Port": 5009
+          }
+        ],
+        "UpstreamPathTemplate": "/Search/Lookups",
+        "UpstreamHttpMethod": ["GET"]
+      }
+    ],
+    "GlobalConfiguration": {
+      //  "BaseUrl": "http://localhost:5000"
+    },
+    "Routes": [
+    ]
+  }
+  

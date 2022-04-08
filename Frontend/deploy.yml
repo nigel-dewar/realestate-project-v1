@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  selector:
+    matchLabels:
+      app: frontend
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: registry.versionfourfactory.com:55000/estateify-frontend:latest
+          ports:
+            - containerPort: 3000
+          # env:
+          # - name: BASE_URL
+          #   value: http://localhost:3000
+          # - name: API_URL
+          #   value: http://localhost:5000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-service
+
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    app: frontend
+
+  ports:
+    - name: http
+      port: 80
+      targetPort: 3000
+
+  type: ClusterIP

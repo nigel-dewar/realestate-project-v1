@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  manage.api:
+    image: ${DOCKER_REGISTRY-}manageapi
+    build:
+      context: .
+      dockerfile: Manage.Api/Dockerfile
+
+  manage.listings.processor:
+    image: ${DOCKER_REGISTRY-}managelistingsprocessor
+    build:
+      context: .
+      dockerfile: Manage.Listings.Processor/Dockerfile
+

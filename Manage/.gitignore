@@ -1,0 +1,17 @@
+*.vs
+.vs/
+appsettings.*
+
+**/obj
+**/bin
+**/node_modules
+
+**/obj/
+**/bin/
+
+**/.DS_Store
+
+*.idea
+.idea
+
+**/.idea
